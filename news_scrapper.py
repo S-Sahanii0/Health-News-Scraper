@@ -5,9 +5,9 @@ import os
 from firebase_admin import firestore
 from uuid import uuid4
 from firebase_admin import initialize_app
+from dotenv import load_dotenv
 
-
-
+load_dotenv()
 all_category = {}
 
 # To add data to firebase
@@ -88,9 +88,9 @@ btn = driver.find_element_by_xpath("/html/body/div[5]/main/section[2]/div/div/p[
 btn.click()
 time.sleep(5)
 email = driver.find_element_by_xpath("/html/body/div/div[1]/div/div[1]/div[2]/div/div[2]/div/form/div[1]/div[1]/div/div/input")
-email.send_keys("shakyasahani0@gmail.com")
+email.send_keys(os.getenv('login_credential_username'))
 password = driver.find_element_by_xpath("/html/body/div/div[1]/div/div[1]/div[2]/div/div[2]/div/form/div[1]/div[2]/div/div[1]/input")
-password.send_keys("healer3910##")
+password.send_keys(os.getenv('login_credential_password'))
 login_btn = driver.find_element_by_xpath("/html/body/div/div[1]/div/div[1]/div[2]/div/div[2]/div/form/div[2]/button")
 login_btn.click()
 time.sleep(5)
